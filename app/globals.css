@@ -170,15 +170,31 @@ img {
   padding: 0 24px;
 }
 
-/* ---------- header & nav ---------- */
+/* ---------- header & nav ----------
+   Sticky, hides on scroll down and reappears on scroll up (Nav tracks
+   this via a "hidden" class). Opaque background — no scrolling text
+   showing through. */
 .site-header {
-  padding: 72px 0 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  transition: transform 0.2s var(--ease);
+}
+
+.site-header.nav-hidden {
+  transform: translateY(-100%);
+}
+
+main {
+  padding-top: 56px;
 }
 
 .nav {
   display: flex;
   gap: 22px;
-  margin-bottom: 56px;
+  padding: 22px 0;
   align-items: center;
 }
 
@@ -402,12 +418,12 @@ h2 {
 
 /* ---------- mobile ---------- */
 @media (max-width: 600px) {
-  .site-header {
-    padding-top: 48px;
+  main {
+    padding-top: 40px;
   }
 
   .nav {
-    margin-bottom: 40px;
+    padding: 16px 0;
     gap: 18px;
   }
 

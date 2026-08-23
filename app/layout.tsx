@@ -33,11 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="flex min-h-dvh flex-col">
         <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
-          <header className="site-header">
-            <div className="wrap">
-              <Nav />
-            </div>
-          </header>
+          <Nav />
           <main className="flex-1">{children}</main>
           <Footer />
         </ThemeProvider>
