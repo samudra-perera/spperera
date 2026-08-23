@@ -75,9 +75,11 @@ The things that erode first in a long session. Not negotiable.
 1. **No raw hex in components.** If a needed colour has no token, add a token.
 2. **No new colours.** One accent. Greys come from the four neutral tokens.
 3. **Motion budget is small and fixed:** a staggered fade on load, row dimming on hover,
-   link underline transitions, the reading progress bar, and the back-arrow nudge. Adding to
-   this list needs a reason. Never: scroll-jacking, pinned sections, parallax, reveal-on-
-   scroll everywhere, cursor followers, page transitions that delay content.
+   link underline transitions, the reading progress bar, the back-arrow nudge, the sticky
+   nav's hide-on-scroll-down/show-on-scroll-up, and the one-time truck crossing on `/about`
+   (drives once on scroll-into-view, monochrome only). Adding to this list needs a reason.
+   Never: scroll-jacking, pinned sections, parallax, reveal-on-scroll everywhere, cursor
+   followers, page transitions that delay content.
 4. **Transitions are 160–200ms.** This is a snappy site, not an editorial one.
 5. **`prefers-reduced-motion` is a build requirement.** New motion without a reset is
    incomplete work.
