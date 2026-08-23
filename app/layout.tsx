@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Instrument_Sans, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import { Nav } from "./nav";
+import { Footer } from "./footer";
 import "./globals.css";
 
 const instrumentSans = Instrument_Sans({
@@ -29,9 +31,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${instrumentSans.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">
+      <body className="flex min-h-dvh flex-col">
         <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
-          {children}
+          <header className="site-header">
+            <div className="wrap">
+              <Nav />
+            </div>
+          </header>
+          <main className="flex-1">{children}</main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
