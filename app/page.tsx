@@ -13,23 +13,25 @@ const EXPERIENCE: Job[] = [
   {
     role: "Software Developer Intern",
     at: "Airbus",
-    date: "2025 — 2026",
+    date: "2025 — Present",
     description:
-      "Backend work on flight planning software. Wrote a C++ library adopted across product teams — replace this with the specific problem it solved.",
-    tags: ["C++", "CMake", "PostgreSQL"],
+      "C++ on a flight-planning platform — built a shared Zip library adopted across three product teams, cutting per-query weather data transfer from multiple GB to 30–40 MB.",
+    tags: ["C++"],
   },
   {
-    role: "Software Engineer",
+    role: "Software Engineering Intern",
     at: "Spingle.ai",
-    date: "2024 — 2025",
-    description: "One of three engineers at an early-stage startup.",
-    tags: ["TypeScript", "React", "Python"],
+    date: "2024",
+    description:
+      "One of three engineers alongside the founding team; migrated the AI video platform to enterprise Google Cloud Vertex AI and shipped an over-the-air update system used by every user.",
+    tags: ["Python", "GCP"],
   },
   {
-    role: "Contract Administrator",
-    at: "AEC consulting",
-    date: "2021 — 2024",
-    description: "Contract administration and site review on infrastructure projects.",
+    role: "Building Science Consultant",
+    at: "WSP",
+    date: "2021",
+    description:
+      "Engineering evaluations, budget reviews, and contract administration on construction projects — saved clients over $500K in cost efficiencies.",
   },
 ];
 
@@ -80,18 +82,18 @@ export default function Home() {
           Software engineer, Toronto
         </p>
         <p className="up" style={stagger(3)}>
-          I work on backend systems — currently C++ for flight planning software at Airbus,
-          where a library I wrote is used across several product teams.
+          I work on backend systems — currently C++ on Airbus&apos;s flight-planning platform,
+          where a shared Zip library I built was adopted across three product teams.
         </p>
         <p className="sub up" style={stagger(4)}>
-          Before software I spent about three years in construction contract administration,
+          Before software I worked in construction contract administration and site inspection,
           which is why I know what tools for that industry are actually missing.
         </p>
         <div className="links up" style={stagger(5)}>
           <a href="mailto:samudrapup@gmail.com">Email</a>
           <a href="https://github.com/samudra-perera">GitHub</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">Résumé</a>
+          <a href="https://linkedin.com/in/samudraperera">LinkedIn</a>
+          <a href="/resume.pdf">Résumé</a>
         </div>
       </div>
 
