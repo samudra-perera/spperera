@@ -1,0 +1,71 @@
+---
+title: "Designing a C++ library four teams wanted to use"
+date: "2026-03-14"
+summary: "The hard part of an internal library isn't the code."
+tags: ["C++", "API design"]
+published: true
+---
+
+The hard part of an internal library isn't the code. It's that four teams have to
+agree the thing is worth depending on, and none of them owe you that.
+
+Body text is just markdown. **Bold**, *italic*, `inline code`, and
+[links](https://example.com) all work the way you'd expect. Blank line between
+paragraphs, and that's it.
+
+<Side>
+This is a margin note. On wide screens it sits out to the right, anchored to the
+paragraph above it. On narrow screens it drops inline.
+</Side>
+
+## Headings are just hashes
+
+Two hashes for a section, three for a subsection. The styling comes from the
+design system — you never touch a class name.
+
+<Callout title="Worth knowing">
+One kind of callout only. If you need more than one, you probably need better
+paragraphs.
+</Callout>
+
+Images are standard markdown. Drop the file in `public/posts/` and reference it:
+
+![Dependency graph before the split](/posts/dep-graph.png)
+
+The caption comes from the alt text, so it stays accessible by default.
+
+## Code blocks
+
+Three backticks, the language, and optionally a filename. Highlighting happens at
+build time, so nothing ships to the browser:
+
+```cpp include/routing/leg.hpp
+// A leg owns nothing. Callers keep the waypoints alive.
+class Leg {
+public:
+  Leg(std::span<const Waypoint> pts) noexcept;
+  [[nodiscard]] Distance length() const noexcept;
+};
+```
+
+## Footnotes
+
+Standard markdown footnote syntax[^1]. They collect at the bottom of the post
+automatically and get the hover behaviour for free.
+
+[^1]: Written as `[^1]` inline, then defined anywhere in the file.
+
+## The interactive bit
+
+This is the only place you'd use a component instead of markdown. Import it at
+the top of the file and drop it in:
+
+<PayloadDemo min={1} max={24} initial={6} />
+
+Because it's imported per-post, nothing ships on posts that don't use one.
+
+> Blockquotes are a right angle bracket, same as anywhere else.
+
+That's the whole authoring surface: frontmatter, markdown, and four components
+you'll actually use — `<Side>`, `<Callout>`, `<Figure>` when you need a custom
+caption, and whatever demo a specific post calls for.
