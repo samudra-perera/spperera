@@ -1,0 +1,69 @@
+---
+title: "Designing a C++ library four teams wanted to use"
+date: "2026-03-14"
+summary: "The hard part of an internal library isn't the code."
+tags: ["C++", "API design"]
+published: true
+---
+
+import { PayloadDemo } from "./payload-demo";
+
+The hard part of an internal library isn't the code. It's that four teams have to
+agree the thing is worth depending on, and none of them owe you that.
+
+Body text is just markdown. **Bold**, *italic*, `inline code`, and
+[links](https://example.com) all work the way you'd expect. Blank line between
+paragraphs, and that's it.
+
+<Side>
+This is a margin note. On wide screens it sits out to the right, anchored to the
+paragraph above it. On narrow screens it drops inline.
+</Side>
+
+## Headings are just hashes
+
+Two hashes for a section, three for a subsection. The styling comes from the
+design system — you never touch a class name.
+
+<Callout title="Worth knowing">
+One kind of callout only. If you need more than one, you probably need better
+paragraphs.
+</Callout>
+
+## Code blocks
+
+Three backticks, the language, and optionally a title. Highlighting happens at
+build time, so nothing ships to the browser:
+
+```cpp title="include/routing/leg.hpp"
+// A leg owns nothing. Callers keep the waypoints alive.
+class Leg {
+public:
+  Leg(std::span<const Waypoint> pts) noexcept;
+  [[nodiscard]] Distance length() const noexcept;
+};
+```
+
+## Showing instead of telling
+
+This is where a technical blog can be genuinely different from a static page,
+and it's the one flourish that doesn't cost cleanliness — it lives inside the
+post rather than around it. Drag the slider[^1]:
+
+<PayloadDemo min={1} max={24} initial={6} />
+
+A reader who drags that slider understands the tradeoff in about four seconds.
+Three paragraphs of prose would not get there.
+
+> The API you ship is a promise about what you won't change. Write it like you
+> mean to keep it.
+
+## Footnotes
+
+Footnotes hover on desktop and jump to the bottom on tap[^2]. Use them for the
+detail that's too specific for a margin note but too useful to cut.
+
+[^1]: Built as an MDX component imported per-post, so nothing ships on posts
+    that don't have one.
+[^2]: `remark-gfm` gives you `[^1]` footnote syntax at build time — no runtime
+    cost.
