@@ -1,7 +1,7 @@
 import type { MDXComponents } from "mdx/types";
-import { Side } from "./app/side";
-import { Callout } from "./app/callout";
-import { Figure } from "./app/figure";
+import { Side } from "@/components/side";
+import { Callout } from "@/components/callout";
+import { Figure } from "@/components/figure";
 
 // Global to every MDX file. Per-post demos are imported directly in the
 // post that uses them instead — nothing ships on posts that don't.

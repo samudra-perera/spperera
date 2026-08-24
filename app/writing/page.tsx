@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
-import { stagger } from "../style-vars";
+import { stagger } from "@/lib/style-vars";
 
 export const metadata: Metadata = {
   title: "Writing",

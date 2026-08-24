@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { stagger } from "../style-vars";
-import { TruckCrossing } from "../truck-crossing";
+import { stagger } from "@/lib/style-vars";
+import { TruckCrossing } from "@/components/truck-crossing";
 
 export const metadata: Metadata = {
   title: "About",

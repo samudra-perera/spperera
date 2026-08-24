@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Instrument_Sans, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
-import { Nav } from "./nav";
-import { Footer } from "./footer";
-import "./globals.css";
+import { Nav } from "@/components/nav";
+import { Footer } from "@/components/footer";
+import "@/styles/globals.css";
 
 const instrumentSans = Instrument_Sans({
   variable: "--font-instrument-sans",

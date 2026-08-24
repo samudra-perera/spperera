@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllPosts, getPost, getPostSlugs, getAdjacentPosts } from "@/lib/posts";
-import { ReadingProgress } from "../../reading-progress";
-import { FootnoteHover } from "../../footnote-hover";
+import { ReadingProgress } from "@/components/reading-progress";
+import { FootnoteHover } from "@/components/footnote-hover";
 
 type PageProps = {
   params: Promise<{ slug: string }>;

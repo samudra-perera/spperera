@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 
 // A one-time, decorative marker at the point the timeline crosses from
 // software into civil engineering. Drives across on scroll-into-view;
-// prefers-reduced-motion (see globals.css) skips the drive and shows it
-// already parked, same as with JS disabled.
+// prefers-reduced-motion (see styles/globals.css) skips the drive and shows
+// it already parked, same as with JS disabled.
 export function TruckCrossing() {
   const ref = useRef<HTMLDivElement>(null);
   const [drive, setDrive] = useState(false);

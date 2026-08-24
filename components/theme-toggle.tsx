@@ -1,22 +1,7 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
-
-function subscribe() {
-  return () => {};
-}
-
-// The theme is unknown on the server, so render "system" there and read
-// the real value only once mounted on the client — avoids a hydration
-// mismatch without setState-in-effect.
-function useMounted() {
-  return useSyncExternalStore(
-    subscribe,
-    () => true,
-    () => false,
-  );
-}
+import { useMounted } from "@/hooks/use-mounted";
 
 const ORDER = ["system", "light", "dark"] as const;
 type Theme = (typeof ORDER)[number];

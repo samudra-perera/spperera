@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { stagger } from "./style-vars";
+import { stagger } from "@/lib/style-vars";
 
 type Job = {
   role: string;
