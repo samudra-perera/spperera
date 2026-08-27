@@ -47,6 +47,15 @@ export default async function ProjectPage({ params }: PageProps) {
               </span>
             ))}
           </div>
+          {project.links.length > 0 && (
+            <div className="plinks">
+              {project.links.map((link) => (
+                <a key={link.href} href={link.href} target="_blank" rel="noreferrer">
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          )}
         </div>
 
         <article className="prose">

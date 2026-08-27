@@ -4,11 +4,17 @@ import matter from "gray-matter";
 
 const PROJECTS_DIR = path.join(process.cwd(), "content/projects");
 
+export type ProjectLink = {
+  label: string;
+  href: string;
+};
+
 export type ProjectFrontmatter = {
   title: string;
   date: string;
   summary: string;
   tags: string[];
+  links: ProjectLink[];
   published: boolean;
 };
 

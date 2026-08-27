@@ -8,12 +8,22 @@ type FigureProps = {
   caption?: string;
   width: number;
   height: number;
+  // Set on whichever image leads a page — it's the LCP candidate, and
+  // without this Next lazy-loads it and dings load performance.
+  priority?: boolean;
 };
 
-export function Figure({ src, alt, caption, width, height }: FigureProps) {
+export function Figure({ src, alt, caption, width, height, priority }: FigureProps) {
   return (
     <figure>
-      <Image src={src} alt={alt} width={width} height={height} sizes="(min-width: 640px) 640px, 100vw" />
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        sizes="(min-width: 640px) 640px, 100vw"
+        priority={priority}
+      />
       {caption && <figcaption>{caption}</figcaption>}
     </figure>
   );
