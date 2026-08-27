@@ -1,0 +1,42 @@
+---
+title: "street-camera-optimizer"
+date: "2024"
+summary: "Approximates minimum vertex cover to place street cameras optimally — Python builds the graph, C++ solves it via SAT encoding with Minisat and multithreaded approximation."
+tags: ["Python", "C++"]
+published: true
+---
+
+[GitHub repo](https://github.com/samudra-perera/Urban-Street-Camera-Optimizer)
+
+In graph theory, a [vertex cover](https://en.wikipedia.org/wiki/Vertex_cover) is a set of
+vertices that includes at least one endpoint of every edge in a graph — for street cameras,
+that means the smallest set of intersections that still watches every street segment.
+Calculating the *minimum* vertex cover is NP-hard, which is what made this one a doozy to
+write.
+
+## Street database — Python
+
+A Python process adds street names and segments to a database, then computes every vertex
+and edge from what's been entered.
+
+## Shortest path — C++
+
+Converts the edge list into an adjacency list and runs a DFS to find the shortest path
+between two vertices in the street database.
+
+## Encoding into SAT — C++
+
+The actual minimum-vertex-cover step: encoding the database's intersections and edges into
+a propositional formula in [CNF](https://equaeghe.github.io/ecyglpki/cnfsat.html), solved
+with Minisat 2.
+
+## Driver program — C++
+
+Runs the programs above as forked processes, piping inputs and outputs between them. It
+includes a random street generator that feeds the Python process, which in turn feeds the
+shortest-path and SAT programs.
+
+## Optimized SAT encoding — C++
+
+Two additional approximation algorithms alongside a 3-SAT reduction, run on multiple
+threads concurrently, to improve on the runtime of the original SAT encoding.

@@ -1,5 +1,10 @@
 import Link from "next/link";
 import { stagger } from "@/lib/style-vars";
+import { getProject } from "@/lib/projects";
+
+// Hand-picked for the homepage teaser rather than sorted — every project
+// below is dated 2024, so "most recent" isn't a meaningful ordering.
+const FEATURED_PROJECT_SLUGS = ["transparence", "street-camera-optimizer"];
 
 type Job = {
   role: string;
@@ -35,31 +40,6 @@ const EXPERIENCE: Job[] = [
   },
 ];
 
-type Project = {
-  name: string;
-  href: string;
-  date: string;
-  description: string;
-  tags: string[];
-};
-
-const PROJECTS: Project[] = [
-  {
-    name: "mango_recruit",
-    href: "#",
-    date: "2026",
-    description: "An AI-native applicant tracking system with explainable candidate scoring.",
-    tags: ["React", "FastAPI", "Postgres"],
-  },
-  {
-    name: "streak",
-    href: "#",
-    date: "2026",
-    description: "A habit tracker that lives in the terminal. Built to learn Rust properly.",
-    tags: ["Rust"],
-  },
-];
-
 type Post = {
   title: string;
   href: string;
@@ -72,6 +52,8 @@ const WRITING: Post[] = [
 ];
 
 export default function Home() {
+  const projectsTeaser = FEATURED_PROJECT_SLUGS.map(getProject);
+
   return (
     <>
       <div className="wrap intro">
@@ -132,16 +114,16 @@ export default function Home() {
         <div className="wrap">
           <h2>Projects</h2>
           <ul className="rows">
-            {PROJECTS.map((project) => (
-              <li className="row" key={project.name}>
-                <a href={project.href}>
+            {projectsTeaser.map((project) => (
+              <li className="row" key={project.slug}>
+                <Link href={`/projects/${project.slug}`}>
                   <div className="rtop">
                     <p className="rtitle">
-                      {project.name} <span className="arrow">→</span>
+                      {project.title} <span className="arrow">→</span>
                     </p>
                     <span className="rdate">{project.date}</span>
                   </div>
-                  <p className="rdesc">{project.description}</p>
+                  <p className="rdesc">{project.summary}</p>
                   <div className="tags">
                     {project.tags.map((tag) => (
                       <span className="tag" key={tag}>
@@ -149,7 +131,7 @@ export default function Home() {
                       </span>
                     ))}
                   </div>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

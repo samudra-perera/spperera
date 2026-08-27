@@ -1,0 +1,46 @@
+---
+title: "uoft-climate-hacks"
+date: "2024"
+summary: "Modeled optimal cooling-station placement for Toronto by downscaling a global climate model to 2071–2100 projections, then overlaying gaps against low-income areas."
+tags: ["Python", "GeoPandas"]
+published: true
+---
+
+[GitHub repo](https://github.com/samudra-perera/UofT-Climate-Hacks)
+
+My first hackathon. UofT Climate Hackathon 2024 tackled pressing climate issues with
+technology — drought mitigation, snowfall cleanup, global warming. Our team took on
+estimating optimal cooling-station locations for the City of Toronto, based on projected
+summertime hot days between 2071 and 2100, using downscaled CanESM5 data.
+
+## Results
+
+We placed cooling centers where no existing solution overlapped with low-income areas —
+identifying City-owned locations in these high-risk areas that could be converted into
+makeshift cooling centers.
+
+<Figure
+  src="/projects/past-heat.webp"
+  alt="Current heat map of average degree-days above 30°C per year in Toronto"
+  caption="Current average degree-days above 30°C per year."
+  width={726}
+  height={443}
+/>
+
+<Figure
+  src="/projects/future-heat.webp"
+  alt="Downscaled forecast heat map with proposed cooling-center overlay"
+  caption="Downscaled 2071–2100 forecast, with proposed cooling centers overlaid."
+  width={997}
+  height={593}
+/>
+
+## Something cool I learned
+
+Climate models take a huge amount of data and can
+[take weeks or months to run](https://theconversation.com/climate-models-can-run-for-months-on-supercomputers-but-my-new-algorithm-can-make-them-ten-times-faster-229041)
+on supercomputers. To forecast Toronto specifically, we took an existing global climate
+model (GCM) and downscaled it to our region using statistical downscaling — combining the
+GCM with historical weather data to raise the resolution to fit our geogridded data.
+
+Built with Mevan Solanga, Asli Bese, and Peter Angelinos.

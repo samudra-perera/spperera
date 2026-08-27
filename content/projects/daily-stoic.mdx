@@ -1,0 +1,33 @@
+---
+title: "daily-stoic"
+date: "2024"
+summary: "Parses The Daily Stoic into 366 daily pages and serves today's entry — 362 parsed automatically, 4 hand-fixed edge cases."
+tags: ["React", "Python"]
+published: true
+---
+
+[Live](https://the-daily-stoic.vercel.app/) · [GitHub repo](https://github.com/samudra-perera/TheDailyStoic)
+
+A weekend project. I'd enjoyed reading *The Daily Stoic* the year before and was surprised
+no one had built a site for it yet — one page per day, served on the day it's meant to be
+read.
+
+<Figure
+  src="/projects/stoic.webp"
+  alt="The Daily Stoic site showing a day's entry"
+  width={1068}
+  height={639}
+/>
+
+## How it was built
+
+I converted the book's epub into a zip file, extracted it, and was left with XHTML markup
+for each page. From there I used [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/)
+to parse every page into markdown, then packaged the result into a small React app that
+shows today's entry based on the date.
+
+## Parsing issues
+
+362 of 366 pages parsed cleanly. The remaining 4 had unique class names in their HTML that
+didn't fit the general parsing rule — rather than write special-case code for four pages, I
+just hand-wrote their markdown directly.
