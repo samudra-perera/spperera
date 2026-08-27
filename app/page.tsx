@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { stagger } from "@/lib/style-vars";
 import { getProject } from "@/lib/projects";
+import { getAllPosts } from "@/lib/posts";
 
 // Hand-picked for the homepage teaser rather than sorted — every project
 // below is dated 2024, so "most recent" isn't a meaningful ordering.
@@ -40,19 +41,9 @@ const EXPERIENCE: Job[] = [
   },
 ];
 
-type Post = {
-  title: string;
-  href: string;
-  date: string;
-};
-
-const WRITING: Post[] = [
-  { title: "Designing a C++ library four teams wanted to use", href: "#", date: "Draft" },
-  { title: "What flight planning taught me about constraint solving", href: "#", date: "Draft" },
-];
-
 export default function Home() {
   const projectsTeaser = FEATURED_PROJECT_SLUGS.map(getProject);
+  const writingTeaser = getAllPosts().slice(0, 2);
 
   return (
     <>
@@ -145,16 +136,21 @@ export default function Home() {
         <div className="wrap">
           <h2>Writing</h2>
           <ul className="rows">
-            {WRITING.map((post) => (
-              <li className="row" key={post.title}>
-                <a href={post.href}>
+            {writingTeaser.map((post) => (
+              <li className="row" key={post.slug}>
+                <Link href={`/writing/${post.slug}`}>
                   <div className="rtop">
                     <p className="rtitle">
                       {post.title} <span className="arrow">→</span>
                     </p>
-                    <span className="rdate">{post.date}</span>
+                    <span className="rdate">
+                      {new Date(post.date).toLocaleDateString("en-US", {
+                        month: "long",
+                        year: "numeric",
+                      })}
+                    </span>
                   </div>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
