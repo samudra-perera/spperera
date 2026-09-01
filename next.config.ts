@@ -8,6 +8,9 @@ import { lightCodeTheme, darkCodeTheme } from "./lib/code-theme";
 // is neither — but it's what the loader registration is verified against.
 const nextConfig: NextConfig = {
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+  // The dev-mode corner badge, not the site's own UI — off so nothing
+  // Next-branded shows up while working locally.
+  devIndicators: false,
 };
 
 // Turbopack (the default bundler here) can't accept JS function references
