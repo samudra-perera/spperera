@@ -19,7 +19,7 @@ const EXPERIENCE: Job[] = [
   {
     role: "Software Developer Intern",
     at: "Airbus",
-    date: "2025 — Present",
+    date: "2025 — 2026",
     description:
       "C++ on a flight-planning platform — built a shared Zip library adopted across three product teams, cutting per-query weather data transfer from multiple GB to 30–40 MB.",
     tags: ["C++"],
@@ -55,8 +55,10 @@ export default function Home() {
           Software engineer, Toronto
         </p>
         <p className="up" style={stagger(3)}>
-          I work on backend systems — currently C++ on Airbus&apos;s flight-planning platform,
-          where a shared Zip library I built was adopted across three product teams.
+          I work on backend systems — most recently C++ on Airbus&apos;s flight-planning
+          platform, where a shared Zip library I built was adopted across three product
+          teams. I&apos;m finishing my Master&apos;s at Waterloo and looking for what&apos;s
+          next.
         </p>
         <p className="sub up" style={stagger(4)}>
           Before software I worked in construction contract administration and site inspection,

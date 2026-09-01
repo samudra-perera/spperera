@@ -19,7 +19,7 @@ const SOFTWARE: Job[] = [
   {
     role: "Software Developer Intern",
     at: "Airbus",
-    date: "2025 — Present",
+    date: "2025 — 2026",
     description:
       "C++ on a flight-planning platform — built a shared Zip library adopted across three product teams, cutting per-query weather data transfer from multiple GB to 30–40 MB.",
     tags: ["C++"],
@@ -148,14 +148,15 @@ export default function About() {
           About
         </h2>
         <p className="up" style={stagger(1)}>
-          I&apos;m a software engineer in Toronto, currently interning at Airbus, where I work
-          in C++ on a flight-planning platform used for commercial flight dispatch.
+          I&apos;m a software engineer in Toronto. Most recently I worked in C++ at Airbus, on
+          a flight-planning platform used for commercial flight dispatch, and I&apos;m now
+          looking for what&apos;s next.
         </p>
         <p className="sub up" style={stagger(2)}>
           I came to software by way of civil engineering. I studied it at Waterloo, then spent
           a few years in construction contract administration and site inspection before
           switching tracks. I&apos;m finishing a Master&apos;s in Systems Design Engineering,
-          also at Waterloo, alongside these internships.
+          also at Waterloo — these internships ran alongside it.
         </p>
       </div>
 
