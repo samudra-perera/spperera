@@ -55,14 +55,13 @@ export default function Home() {
           Software engineer, Toronto
         </p>
         <p className="up" style={stagger(3)}>
-          I work on backend systems — most recently C++ on Airbus&apos;s flight-planning
+          I work across the stack — most recently C++ on Airbus&apos;s flight-planning
           platform, where a shared Zip library I built was adopted across three product
-          teams. I&apos;m finishing my Master&apos;s at Waterloo and looking for what&apos;s
-          next.
+          teams. I&apos;m finishing my Master&apos;s at Waterloo and open to new roles.
         </p>
         <p className="sub up" style={stagger(4)}>
-          Before software I worked in construction contract administration and site inspection,
-          which is why I know what tools for that industry are actually missing.
+          Before software, I worked in consulting engineering and building science, mostly
+          on project design and construction management.
         </p>
         <div className="links up" style={stagger(5)}>
           <a href="mailto:samudrapup@gmail.com">Email</a>

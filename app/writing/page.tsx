@@ -5,7 +5,7 @@ import { stagger } from "@/lib/style-vars";
 
 export const metadata: Metadata = {
   title: "Writing",
-  description: "Posts on backend systems, C++, and whatever else comes up.",
+  description: "Posts on C++, software engineering, and whatever else comes up.",
 };
 
 export default function WritingIndex() {

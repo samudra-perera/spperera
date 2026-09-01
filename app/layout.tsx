@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     default: "Samudra Perera",
     template: "%s · Samudra Perera",
   },
-  description: "Software engineer in Toronto. C++ and backend systems.",
+  description: "Software engineer in Toronto, working across the stack.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

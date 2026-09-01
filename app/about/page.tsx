@@ -149,14 +149,14 @@ export default function About() {
         </h2>
         <p className="up" style={stagger(1)}>
           I&apos;m a software engineer in Toronto. Most recently I worked in C++ at Airbus, on
-          a flight-planning platform used for commercial flight dispatch, and I&apos;m now
-          looking for what&apos;s next.
+          a flight-planning platform used for commercial flight dispatch. I&apos;m currently
+          open to new roles.
         </p>
         <p className="sub up" style={stagger(2)}>
-          I came to software by way of civil engineering. I studied it at Waterloo, then spent
-          a few years in construction contract administration and site inspection before
-          switching tracks. I&apos;m finishing a Master&apos;s in Systems Design Engineering,
-          also at Waterloo — these internships ran alongside it.
+          I started in civil engineering. I studied it at Waterloo, then spent a few years in
+          consulting engineering and building science — mostly project design and
+          management — before moving into software. I&apos;m finishing a Master&apos;s in
+          Systems Design Engineering, also at Waterloo — these internships ran alongside it.
         </p>
       </div>
 
