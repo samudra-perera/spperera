@@ -23,12 +23,15 @@ export function PayloadDemo({ min, max, initial }: PayloadDemoProps) {
     });
   }, [hours, max]);
 
-  const payloadMb = Math.round(6 + hours * 5.4);
+  // Real range is 30-150 MB depending on which data files are requested
+  // — the slider is a stand-in for that, not a literal query-window
+  // measurement.
+  const payloadMb = Math.round(30 + (hours / max) * 120);
 
   return (
     <div className="demo">
       <div className="dtop">
-        <span>Payload per forecast cycle</span>
+        <span>NWS payload</span>
         <span>~{payloadMb} MB</span>
       </div>
       <div className="bars">

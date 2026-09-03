@@ -1,69 +1,80 @@
 ---
-title: "Designing a C++ library four teams wanted to use"
-date: "2026-03-14"
-summary: "The hard part of an internal library isn't the code."
+title: "Two shared libraries, one pattern"
+date: "2026-08-15"
+summary: "Two different problems on the same flight-planning codebase, solved the same way: build the shared version once."
 tags: ["C++", "API design"]
 published: true
 ---
 
 import { PayloadDemo } from "./payload-demo";
 
-The hard part of an internal library isn't the code. It's that four teams have to
-agree the thing is worth depending on, and none of them owe you that.
+At Airbus I built two shared C++ libraries for the flight-planning platform. One
+handled zip files, the other polled weather data. Different problems, same root cause:
+teams kept writing their own version of something that should have existed once.
 
-Body text is just markdown. **Bold**, *italic*, `inline code`, and
-[links](https://example.com) all work the way you'd expect. Blank line between
-paragraphs, and that's it.
+## ZipManager
+
+Zip functionality was scattered across the codebase. Several teams had their own
+implementations, and no two covered quite the same cases: one team only zipped a single
+file, another needed multi-file archives, a third needed to unzip incoming data. I
+consolidated all of it into the shared-libraries codebase and reimplemented it behind a
+single `ZipManager` class: single-file zip, multi-file zip, unzipping, and proper error
+handling throughout. Other teams call one interface now instead of rolling their own.
 
 <Side>
-This is a margin note. On wide screens it sits out to the right, anchored to the
-paragraph above it. On narrow screens it drops inline.
+Also upgraded the underlying libzip version to support zipping in memory instead of
+round-tripping through disk. libzip's normal API expects real files, so this meant
+wrapping its source/callback interface around a buffer instead. `ZipManager`'s own
+interface stayed the same regardless of which libzip version sat behind it, so the
+upgrade didn't touch any call sites.
 </Side>
 
-## Headings are just hashes
+Three product teams use `ZipManager` now. That's one implementation instead of three,
+each with its own quirks and its own bugs to fix twice.
 
-Two hashes for a section, three for a subsection. The styling comes from the
-design system — you never touch a class name.
+## ApiPolling
+
+The second library followed the same shape, but the base class itself isn't
+weather-specific. Multiple teams were each polling their own aviation weather providers
+(SADIS, NMS, NWS), and each had built its own bespoke implementation to do it. NWS's
+wasn't even part of the C++ codebase: it was a Perl script.
 
 <Callout title="Worth knowing">
-One kind of callout only. If you need more than one, you probably need better
-paragraphs.
+Three providers, three different API shapes, three separate implementations to poll
+them. The differences that actually mattered were per-provider. Everything else (retry
+behavior, timeouts, how a poll result gets handed back) was duplicated logic with no
+reason to be.
 </Callout>
 
-## Code blocks
+I built `ApiPolling` as a generic base class: just the shared shape of polling an
+external API and handling the result, nothing about weather in it. Then I built weather
+polling for SADIS, NMS, and NWS on top of it, migrating NWS off its old Perl script and
+onto a proper C++ implementation in the process:
 
-Three backticks, the language, and optionally a title. Highlighting happens at
-build time, so nothing ships to the browser:
-
-```cpp title="include/routing/leg.hpp"
-// A leg owns nothing. Callers keep the waypoints alive.
-class Leg {
+```cpp title="include/polling/api_polling.hpp"
+class ApiPolling {
 public:
-  Leg(std::span<const Waypoint> pts) noexcept;
-  [[nodiscard]] Distance length() const noexcept;
+  virtual ~ApiPolling() = default;
+  virtual Response poll() = 0;
+};
+
+class NwsPoller final : public ApiPolling {
+public:
+  Response poll() override;
 };
 ```
 
-## Showing instead of telling
-
-This is where a technical blog can be genuinely different from a static page,
-and it's the one flourish that doesn't cost cleanliness — it lives inside the
-post rather than around it. Drag the slider[^1]:
+The rewrite was also a chance to fix what NWS was actually downloading. NWS data comes
+as GRIB files, and the old script downloaded every GRIB available, then parsed out the
+ones it actually needed, paying the transfer cost for data it was about to throw away.
+The new implementation skips straight to requesting only the GRIBs it needs, with no
+download-then-discard step in between. That alone cut per-query payloads from about
+2–3 GB down to 30–150 MB, depending on the data files requested:
 
 <PayloadDemo min={1} max={24} initial={6} />
 
-A reader who drags that slider understands the tradeoff in about four seconds.
-Three paragraphs of prose would not get there.
+## Same fix, twice
 
-> The API you ship is a promise about what you won't change. Write it like you
-> mean to keep it.
-
-## Footnotes
-
-Footnotes hover on desktop and jump to the bottom on tap[^2]. Use them for the
-detail that's too specific for a margin note but too useful to cut.
-
-[^1]: Built as an MDX component imported per-post, so nothing ships on posts
-    that don't have one.
-[^2]: `remark-gfm` gives you `[^1]` footnote syntax at build time — no runtime
-    cost.
+Both libraries solved the same problem: logic duplicated across a codebase with no
+canonical home for it. The fix in both cases wasn't clever. It was building the shared
+version once and making everyone build on top of it instead of around it.
