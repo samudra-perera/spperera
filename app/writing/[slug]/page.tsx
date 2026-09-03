@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getAllPosts, getPost, getPostSlugs, getAdjacentPosts } from "@/lib/posts";
 import { ReadingProgress } from "@/components/reading-progress";
 import { FootnoteHover } from "@/components/footnote-hover";
+import { TableOfContents } from "@/components/table-of-contents";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -32,6 +33,7 @@ export default async function ArticlePage({ params }: PageProps) {
   return (
     <>
       <ReadingProgress />
+      <TableOfContents headings={post.headings} />
       <div className="wrap">
         <Link className="back" href="/writing">
           <span className="ar">←</span> Writing

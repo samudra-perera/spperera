@@ -91,16 +91,20 @@ The things that erode first in a long session. Not negotiable.
 8. **Never bare `vh`.** iOS Safari measures `100vh` with browser chrome collapsed. Use `svh`
    or `dvh` with a `vh` fallback.
 9. **No `localStorage` beyond what next-themes handles.**
-10. **Body text is never below 15px.** Article prose is 16.5px on a 640px measure.
+10. **Body text is never below 15px.** Article prose is 15.5px on a 640px measure.
 
 ---
 
 ## Layout
 
 - **Measure: 640px** with 24px gutters. This is the whole layout. Content does not go wider.
-- Margin notes are the one exception: above 1120px they sit at `left:100%` beside their
-  paragraph, anchored to a `position:relative` wrapper. Below that they drop inline. Do not
-  convert this to a grid — the anchoring is the point.
+- Two things break out of the measure, on opposite sides so they never collide. Margin
+  notes: above 1120px they sit at `left:100%` beside their paragraph, anchored to a
+  `position:relative` wrapper; below that they drop inline. Do not convert this to a grid —
+  the anchoring is the point. The article/project table of contents: above 1280px (and only
+  with a fine pointer) it's fixed in the left gutter, tracking scroll to highlight the
+  current section; below that, or on any post/project with fewer than two headings, it
+  doesn't render at all.
 - **Typography:** Instrument Sans throughout, JetBrains Mono for dates, tags, code, and
   labels. Two families total. Never set body copy in mono.
 - Mobile: below 600px, row dates move above titles, the pager stacks, gutters stay 24px.

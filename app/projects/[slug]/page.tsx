@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllProjects, getProject, getProjectSlugs, getAdjacentProjects } from "@/lib/projects";
 import { ReadingProgress } from "@/components/reading-progress";
+import { TableOfContents } from "@/components/table-of-contents";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -31,6 +32,7 @@ export default async function ProjectPage({ params }: PageProps) {
   return (
     <>
       <ReadingProgress />
+      <TableOfContents headings={project.headings} />
       <div className="wrap">
         <Link className="back" href="/projects">
           <span className="ar">←</span> Projects

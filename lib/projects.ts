@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { extractHeadings, type Heading } from "./headings";
 
 const PROJECTS_DIR = path.join(process.cwd(), "content/projects");
 
@@ -18,7 +19,7 @@ export type ProjectFrontmatter = {
   published: boolean;
 };
 
-export type Project = ProjectFrontmatter & { slug: string };
+export type Project = ProjectFrontmatter & { slug: string; headings: Heading[] };
 
 export function getProjectSlugs(): string[] {
   if (!fs.existsSync(PROJECTS_DIR)) return [];
@@ -31,10 +32,10 @@ export function getProjectSlugs(): string[] {
 export function getProject(slug: string): Project {
   const filePath = path.join(PROJECTS_DIR, `${slug}.mdx`);
   const raw = fs.readFileSync(filePath, "utf8");
-  const { data } = matter(raw);
+  const { data, content } = matter(raw);
   const frontmatter = data as ProjectFrontmatter;
 
-  return { ...frontmatter, slug };
+  return { ...frontmatter, slug, headings: extractHeadings(content) };
 }
 
 // published:false hides a draft here (and from the index) while still

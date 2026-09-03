@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { extractHeadings, type Heading } from "./headings";
 
 const POSTS_DIR = path.join(process.cwd(), "content/posts");
 const WORDS_PER_MINUTE = 200;
@@ -16,6 +17,7 @@ export type PostFrontmatter = {
 export type Post = PostFrontmatter & {
   slug: string;
   readingTime: number;
+  headings: Heading[];
 };
 
 function wordCount(text: string): number {
@@ -41,6 +43,7 @@ export function getPost(slug: string): Post {
     ...frontmatter,
     slug,
     readingTime: Math.max(1, Math.ceil(wordCount(content) / WORDS_PER_MINUTE)),
+    headings: extractHeadings(content),
   };
 }
 
