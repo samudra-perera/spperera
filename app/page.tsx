@@ -16,6 +16,12 @@ type Job = {
   tags?: string[];
 };
 
+// TODO: this description (and the intro paragraph below) only mentions
+// ZipManager, and wrongly credits it with the 30-40MB weather-payload
+// number — that reduction actually came from the WeatherPoller/NWS
+// rewrite (requesting only the needed data instead of the full glob),
+// not from zip compression. Update both once /writing/cpp-library
+// settles.
 const EXPERIENCE: Job[] = [
   {
     role: "Software Developer Intern",
