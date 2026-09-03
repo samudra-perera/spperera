@@ -2,6 +2,7 @@ import Link from "next/link";
 import { stagger } from "@/lib/style-vars";
 import { getProject } from "@/lib/projects";
 import { getAllPosts } from "@/lib/posts";
+import { ResumeLink } from "@/components/resume-link";
 
 // Hand-picked for the homepage teaser rather than sorted — every project
 // below is dated 2024, so "most recent" isn't a meaningful ordering.
@@ -67,7 +68,7 @@ export default function Home() {
           <a href="mailto:samudrapup@gmail.com">Email</a>
           <a href="https://github.com/samudra-perera">GitHub</a>
           <a href="https://linkedin.com/in/samudraperera">LinkedIn</a>
-          <a href="/resume.pdf">Résumé</a>
+          <ResumeLink />
         </div>
       </div>
 

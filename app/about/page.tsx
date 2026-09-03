@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { stagger } from "@/lib/style-vars";
 import { TruckCrossing } from "@/components/truck-crossing";
+import { ResumeLink } from "@/components/resume-link";
 
 export const metadata: Metadata = {
   title: "About",
@@ -158,9 +159,15 @@ export default function About() {
           management — before moving into software. I&apos;m finishing a Master&apos;s in
           Systems Design Engineering, also at Waterloo — these internships ran alongside it.
         </p>
+        <div className="links up" style={stagger(3)}>
+          <a href="mailto:samudrapup@gmail.com">Email</a>
+          <a href="https://github.com/samudra-perera">GitHub</a>
+          <a href="https://linkedin.com/in/samudraperera">LinkedIn</a>
+          <ResumeLink />
+        </div>
       </div>
 
-      <section className="up" style={stagger(3)}>
+      <section className="up" style={stagger(4)}>
         <div className="wrap">
           <h2>Experience</h2>
           <div className="timeline">
@@ -179,7 +186,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="up" style={stagger(4)}>
+      <section className="up" style={stagger(5)}>
         <div className="wrap">
           <h2>Education</h2>
           <ul className="rows">

@@ -260,6 +260,7 @@ main {
 
 .intro .links {
   display: flex;
+  align-items: center;
   gap: 18px;
   flex-wrap: wrap;
   margin-top: 22px;
@@ -271,6 +272,22 @@ main {
   padding: 8px 0;
   border-bottom: 1px solid var(--line);
   transition: color 0.18s var(--ease), border-color 0.18s var(--ease);
+}
+
+/* ---------- resume CTA ----------
+   Inherits .intro .links a's base styling (size, color, padding,
+   underline, hover) — only adds the icon layout and a heavier weight to
+   set it apart from Email/GitHub/LinkedIn beside it. */
+.resume-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.resume-cta svg {
+  width: 14px;
+  height: 14px;
 }
 
 /* ---------- sections ---------- */
