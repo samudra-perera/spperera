@@ -73,6 +73,12 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   scroll-behavior: smooth;
+  /* Always reserve the scrollbar's width, whether or not a given page is
+     tall enough to need one — otherwise .wrap's centering shifts a few
+     pixels sideways when navigating from a page with a scrollbar to one
+     without (or vice versa). Only matters on classic (non-overlay)
+     scrollbars; a no-op elsewhere. */
+  scrollbar-gutter: stable;
   /* Nav height (56px) + breathing room, so an anchor jump (TOC links,
      footnote refs/backrefs) lands below the sticky nav instead of flush
      against the viewport top — otherwise the nav sliding back in on
