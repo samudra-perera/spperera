@@ -1,0 +1,149 @@
+---
+title: "The year in review"
+date: "2026-09-04"
+summary: "365 days of WHOOP data on sleep, recovery, and training load — the one lever that actually explains how I felt, and the three that looked like it but didn't."
+tags: ["Personal", "Data"]
+published: false
+---
+
+import {
+  ActivitiesChart,
+  AltitudeCompareChart,
+  BedtimeChart,
+  ConfoundsChart,
+  LateNightTrendChart,
+  RecoveryCorrelatesChart,
+  SleepBandsChart,
+  StreakChart,
+  TrainingVolumeChart,
+  WeeklyRhythmChart,
+  YearChart,
+} from "./whoop-demo";
+
+Twelve months of WHOOP data, September 2025 to September 2026: 366 days, 524 training
+sessions, about 378 hours logged. I tracked eighteen behaviours daily hoping a handful would
+explain how I felt day to day. Only one turned out to matter enough to act on — the rest is
+here mostly to show how I ruled the others out. Broken into three pieces: how I slept, what
+that did to recovery, and how much I actually did.
+
+## Sleep
+
+Bedtime is the lever, not wake time.
+
+<BedtimeChart />
+
+Bedtime correlates -0.46 with how much I actually sleep; wake time only 0.39. Sleeping in
+barely makes up for going to bed late. 208 of 366 nights started after 2am, and those nights
+average 52% recovery. Nights before midnight average 76%.
+
+On short nights the body protects deep sleep first and cuts REM.
+
+<SleepBandsChart />
+
+Deep sleep moves 90 to 119 minutes from the shortest nights to the longest, a 32% gain. REM
+moves 52 to 149, up 187%. The body protects deep sleep first; REM — the stage most tied to
+mood and emotional processing — is what actually gets sacrificed when sleep is short.
+
+The week has a shape too.
+
+<WeeklyRhythmChart />
+
+Weekday bedtime runs about 1.5 hours earlier than weekend bedtime — a real social jetlag,
+physiologically not unlike flying two time zones every Friday and back every Monday. It
+shows up directly in the numbers: recovery is lowest on Monday (52.0) and Sunday (55.8),
+highest on Friday (63.0); REM tracks the same curve, about 88 minutes on Monday against 103
+on Friday and Saturday. The weekend doesn't just cost Saturday morning. It costs Monday too.
+
+<LateNightTrendChart />
+
+The trend ran the wrong way all year — 29% of nights after 2am in September, climbing to 81%
+by December, still running above half most months since. Weekend nights are the worse bet per
+night (79% after 2am against 48% on weeknights), but plain volume favors weeknights — 125 of
+the 208 late nights happen Monday through Friday, not the weekend. Modeling the bucket table
+with those nights redistributed into the earlier buckets — the plausible outcome, not the best
+case — moves average recovery from 58.2% to 64.8%. That's what a bedtime change is actually
+worth. The goal that comes out of it — a specific number, not a resolution — is in the
+[summer 2026 update](/writing/summer-2026-update).
+
+## Recovery
+
+<RecoveryCorrelatesChart />
+
+HRV and sleep performance do almost all of the work; resting heart rate and REM duration
+matter too. Sleep efficiency and sleep consistency — both things that sound like they should
+predict recovery — sit near zero. It's possible to sleep efficiently, on a consistent
+schedule, and still not recover, if the sleep itself is short or shallow. Efficiency measures
+how little time is spent awake in bed; performance measures sleep against a computed need.
+Only the second one tracks recovery.
+
+Resting heart rate barely moved over the year — 49.8 to 50.3 comparing the first 90 days to
+the last — even as HRV rose about 11 points over the same stretch. Real aerobic adaptation on
+one metric, not a transformation on the other.
+
+Before turning any of this into a goal, worth showing what doesn't hold up:
+
+<ConfoundsChart />
+
+Every one of those looked like a real effect until the sample size or the causal direction got
+checked. Two more, cut for the same reason: eating close to bedtime shows a real recovery
+delta (-6.1), but it's almost certainly the late-bedtime story again in a different costume,
+not an independent effect. And sleep efficiency, covered above, looks like it should matter
+and doesn't. A correlation in your own data about your own body is still just a correlation.
+
+There's also a faster, sharper crash worth separating from all of the above: 22 days where
+skin temperature jumped more than half a degree above its own two-week baseline — WHOOP's
+early-illness signal — show recovery cratering to 40.3%, against a 58.2% baseline. It's gone
+by the next day, back to 56.2%. That's a different failure mode than anything sleep-driven:
+acute, not cumulative, and not something a bedtime change fixes.
+
+February is the one month that breaks the pattern above, and it isn't really about sleep or
+training at all. One week inside it — February 15 to 21, Mexico City — is the worst week of
+the entire year by a wide margin: 18.3% average recovery against a 59.0% baseline for every
+other week. The signature is textbook altitude, not just a bad week of sleep: resting heart
+rate up 12.8 bpm, HRV down 44 ms, blood oxygen down 2.2 points, all three moving together in
+the direction elevation predicts, on top of 1.24 fewer hours of sleep a night from staying out
+late in an unfamiliar place. Short sleep alone doesn't explain it — nights under 5 hours
+everywhere else in the year average 32.3% recovery, 14 points better than this week managed.
+Four of the year's twelve resting-heart-rate-over-60 days happened inside this single week.
+
+<AltitudeCompareChart />
+
+Even against February's own average — already a below-par month — the trip week is worse on
+every metric, Day Strain included (WHOOP's 0-21 training-load score, where higher means a
+harder day). Worth saying plainly, since the point of the confounds above is not to blur two
+different things into one explanation. (Recovery by month is in the appendix.)
+
+## Activity levels
+
+The cardio and soccer goals from [summer 2024](/writing/summer-2024) held up, and then some.
+Soccer: 47 sessions, comfortably past the "twice a week" target. Running: 27 sessions, past
+"once a week" too. Strength training turned out to be the real backbone of the year though:
+114 sessions, about 91 hours, more than anything else. The rest of the year was a lot more
+varied than planned: swimming, volleyball, badminton, pickleball, dance, yoga, even one
+session each of padel and boxing.
+
+<ActivitiesChart />
+
+<TrainingVolumeChart />
+
+Training load went up over the year while recovery went down — monthly sessions grew from 35
+in September 2025 to 80 in August 2026, hours from 25 to 56. Training load grew faster than
+sleep could support it.
+
+<StreakChart />
+
+One hard day (63.3% recovery) doesn't cost anything — if anything it's a day I was already
+fresh enough to push. Two in a row is still fine (57.6%, basically baseline). The break comes
+on day three: ten streaks over the year hit strain 14+ for three or more consecutive days, and
+by that third day recovery is 39.2% and REM is down to 73.8 minutes, against a 95.2-minute
+baseline. The actionable version isn't "train less," it's "never three hard days back to back
+without a real rest day between."
+
+## Appendix
+
+One supporting figure, kept here since it's covered in prose above and isn't essential to
+follow the argument.
+
+### Recovery by month
+
+<YearChart />

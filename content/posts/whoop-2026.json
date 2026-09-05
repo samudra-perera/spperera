@@ -1,0 +1,510 @@
+{
+  "source": "WHOOP export, 2025-09-02 to 2026-09-03. Aggregated only \u2014 no day-level rows.",
+  "meta": {
+    "from": "2025-09-03",
+    "to": "2026-09-03",
+    "days": 366,
+    "sessions": 524,
+    "hours": 377.58
+  },
+  "headline": {
+    "recovery": 58.2,
+    "sleep_h": 6.2,
+    "hrv": 97.25,
+    "rhr": 50.0,
+    "strain": 11.4,
+    "median_bedtime": "2:16am",
+    "median_wake": "9:20am",
+    "pct_under_6h": 44,
+    "pct_under_7h": 71,
+    "sleep_debt_min": 90.14
+  },
+  "bedtime_buckets": [
+    {
+      "bucket": "before 11pm",
+      "nights": 8,
+      "sleep_h": 7.64,
+      "recovery": 77.88,
+      "wake_h": 7.45
+    },
+    {
+      "bucket": "11pm\u201312am",
+      "nights": 20,
+      "sleep_h": 7.26,
+      "recovery": 75.45,
+      "wake_h": 7.72
+    },
+    {
+      "bucket": "12\u20131am",
+      "nights": 59,
+      "sleep_h": 6.89,
+      "recovery": 64.71,
+      "wake_h": 8.31
+    },
+    {
+      "bucket": "1\u20132am",
+      "nights": 71,
+      "sleep_h": 6.52,
+      "recovery": 62.87,
+      "wake_h": 8.71
+    },
+    {
+      "bucket": "after 2am",
+      "nights": 208,
+      "sleep_h": 5.74,
+      "recovery": 52.34,
+      "wake_h": 10.1
+    }
+  ],
+  "sleep_bands": [
+    {
+      "band": "<5h",
+      "nights": 72,
+      "recovery": 32.0,
+      "deep_min": 90.5,
+      "rem_min": 51.9,
+      "hrv": 84.0
+    },
+    {
+      "band": "5\u20136h",
+      "nights": 96,
+      "recovery": 57.6,
+      "deep_min": 107.7,
+      "rem_min": 80.3,
+      "hrv": 99.4
+    },
+    {
+      "band": "6\u20137h",
+      "nights": 94,
+      "recovery": 63.4,
+      "deep_min": 109.0,
+      "rem_min": 103.2,
+      "hrv": 96.8
+    },
+    {
+      "band": "7\u20138h",
+      "nights": 61,
+      "recovery": 73.8,
+      "deep_min": 119.2,
+      "rem_min": 125.6,
+      "hrv": 106.1
+    },
+    {
+      "band": "8h+",
+      "nights": 43,
+      "recovery": 69.9,
+      "deep_min": 119.3,
+      "rem_min": 149.1,
+      "hrv": 102.9
+    }
+  ],
+  "months": [
+    {
+      "month": "2025-09",
+      "recovery": 71.9,
+      "sleep_h": 6.6,
+      "hrv": 87.6,
+      "strain": 12.0,
+      "sessions": 35,
+      "hours": 24.9,
+      "pct_after2": 28.6,
+      "days": 28
+    },
+    {
+      "month": "2025-10",
+      "recovery": 60.2,
+      "sleep_h": 6.21,
+      "hrv": 94.9,
+      "strain": 10.1,
+      "sessions": 16,
+      "hours": 11.2,
+      "pct_after2": 38.7,
+      "days": 31
+    },
+    {
+      "month": "2025-11",
+      "recovery": 55.3,
+      "sleep_h": 6.15,
+      "hrv": 89.0,
+      "strain": 11.9,
+      "sessions": 24,
+      "hours": 19.3,
+      "pct_after2": 56.7,
+      "days": 30
+    },
+    {
+      "month": "2025-12",
+      "recovery": 59.4,
+      "sleep_h": 5.92,
+      "hrv": 101.4,
+      "strain": 10.2,
+      "sessions": 26,
+      "hours": 23.0,
+      "pct_after2": 80.6,
+      "days": 31
+    },
+    {
+      "month": "2026-01",
+      "recovery": 57.2,
+      "sleep_h": 6.39,
+      "hrv": 97.5,
+      "strain": 10.8,
+      "sessions": 30,
+      "hours": 22.6,
+      "pct_after2": 53.1,
+      "days": 32
+    },
+    {
+      "month": "2026-02",
+      "recovery": 47.1,
+      "sleep_h": 5.91,
+      "hrv": 85.6,
+      "strain": 12.3,
+      "sessions": 46,
+      "hours": 30.6,
+      "pct_after2": 59.3,
+      "days": 27
+    },
+    {
+      "month": "2026-03",
+      "recovery": 56.0,
+      "sleep_h": 5.88,
+      "hrv": 96.3,
+      "strain": 11.8,
+      "sessions": 43,
+      "hours": 30.5,
+      "pct_after2": 71.0,
+      "days": 31
+    },
+    {
+      "month": "2026-04",
+      "recovery": 66.8,
+      "sleep_h": 6.49,
+      "hrv": 108.6,
+      "strain": 11.6,
+      "sessions": 44,
+      "hours": 33.0,
+      "pct_after2": 70.0,
+      "days": 30
+    },
+    {
+      "month": "2026-05",
+      "recovery": 50.3,
+      "sleep_h": 6.31,
+      "hrv": 98.5,
+      "strain": 11.5,
+      "sessions": 62,
+      "hours": 44.3,
+      "pct_after2": 67.7,
+      "days": 31
+    },
+    {
+      "month": "2026-06",
+      "recovery": 59.9,
+      "sleep_h": 6.34,
+      "hrv": 103.2,
+      "strain": 10.1,
+      "sessions": 54,
+      "hours": 35.4,
+      "pct_after2": 70.0,
+      "days": 30
+    },
+    {
+      "month": "2026-07",
+      "recovery": 53.9,
+      "sleep_h": 6.2,
+      "hrv": 95.7,
+      "strain": 11.5,
+      "sessions": 57,
+      "hours": 40.4,
+      "pct_after2": 32.3,
+      "days": 31
+    },
+    {
+      "month": "2026-08",
+      "recovery": 61.1,
+      "sleep_h": 6.12,
+      "hrv": 105.1,
+      "strain": 12.9,
+      "sessions": 80,
+      "hours": 55.9,
+      "pct_after2": 51.6,
+      "days": 31
+    }
+  ],
+  "activities": [
+    {
+      "name": "Strength Trainer",
+      "sessions": 114,
+      "hours": 91.4
+    },
+    {
+      "name": "Walking",
+      "sessions": 127,
+      "hours": 68.8
+    },
+    {
+      "name": "Soccer",
+      "sessions": 47,
+      "hours": 51.1
+    },
+    {
+      "name": "Dance",
+      "sessions": 33,
+      "hours": 39.0
+    },
+    {
+      "name": "Activity",
+      "sessions": 45,
+      "hours": 23.4
+    },
+    {
+      "name": "Running",
+      "sessions": 27,
+      "hours": 16.7
+    },
+    {
+      "name": "Weightlifting",
+      "sessions": 22,
+      "hours": 16.0
+    },
+    {
+      "name": "Gaming",
+      "sessions": 27,
+      "hours": 10.6
+    }
+  ],
+  "findings": {
+    "bedtime_vs_sleep_corr": -0.459,
+    "waketime_vs_sleep_corr": 0.39,
+    "sleep_vs_recovery_corr": 0.588,
+    "sleep_performance_vs_recovery_corr": 0.699,
+    "sleep_consistency_vs_recovery_corr": 0.03,
+    "social_jetlag_h": 1.44,
+    "strain15_next_day_recovery": 45.9,
+    "strain15_day2_recovery": 56.2,
+    "baseline_recovery": 58.2,
+    "nap_rate_after_short_night": 35,
+    "recovery_short_night_with_nap": 41.7,
+    "recovery_short_night_no_nap": 48.6,
+    "hrv_delta_first90_last90": 11.3,
+    "recovery_delta_first90_last90": -4.3,
+    "regression_r2": 0.578,
+    "rhr_delta_first90_last90": 0.5,
+    "sleep_efficiency_vs_recovery_corr": 0.076,
+    "sleep_efficiency_vs_performance_corr": 0.384
+  },
+  "confounds": [
+    {
+      "variable": "caffeine",
+      "naive_delta_recovery": 9.4,
+      "why_wrong": "reverse causation \u2014 caffeine is logged on ordinary working days and skipped when wiped out or off routine"
+    },
+    {
+      "variable": "artificial light on waking",
+      "naive_delta_recovery": 16.6,
+      "why_wrong": "n=20 and the HRV delta runs the opposite direction; noise"
+    },
+    {
+      "variable": "napping",
+      "naive_delta_recovery": -6.9,
+      "why_wrong": "napping follows a bad night, it does not cause one"
+    }
+  ],
+  "weekly_rhythm": [
+    {
+      "dow": "Monday",
+      "n": 53,
+      "recovery": 52.0,
+      "rem_min": 88.2,
+      "strain": 11.2
+    },
+    {
+      "dow": "Tuesday",
+      "n": 53,
+      "recovery": 55.8,
+      "rem_min": 89.8,
+      "strain": 11.1
+    },
+    {
+      "dow": "Wednesday",
+      "n": 55,
+      "recovery": 59.3,
+      "rem_min": 95.0,
+      "strain": 11.8
+    },
+    {
+      "dow": "Thursday",
+      "n": 51,
+      "recovery": 61.3,
+      "rem_min": 97.0,
+      "strain": 10.9
+    },
+    {
+      "dow": "Friday",
+      "n": 49,
+      "recovery": 63.0,
+      "rem_min": 102.9,
+      "strain": 10.9
+    },
+    {
+      "dow": "Saturday",
+      "n": 52,
+      "recovery": 60.7,
+      "rem_min": 103.2,
+      "strain": 11.6
+    },
+    {
+      "dow": "Sunday",
+      "n": 53,
+      "recovery": 55.8,
+      "rem_min": 98.2,
+      "strain": 12.3
+    }
+  ],
+  "high_strain_streaks": {
+    "threshold": 14,
+    "min_len": 3,
+    "n_streaks": 10,
+    "late_days": 10,
+    "late_recovery": 39.2,
+    "late_rem_min": 73.8,
+    "baseline_recovery": 57.3,
+    "baseline_rem_min": 95.2
+  },
+  "late_night_goal": {
+    "target_after2_nights": 30,
+    "current_after2_nights": 208,
+    "weekday_after2_nights": 125,
+    "weekday_nights": 261,
+    "weekend_after2_nights": 83,
+    "weekend_nights": 105,
+    "first_month_pct_after2": 28.6,
+    "peak_month_pct_after2": 80.6,
+    "projected_recovery_at_target": 64.8
+  },
+  "strain_streak_progression": [
+    {
+      "stage": "baseline",
+      "n": 249,
+      "recovery": 57.3,
+      "sleep_h": 6.14,
+      "rem_min": 95.2
+    },
+    {
+      "stage": "day 1",
+      "n": 82,
+      "recovery": 63.3,
+      "sleep_h": 6.4,
+      "rem_min": 100.8
+    },
+    {
+      "stage": "day 2",
+      "n": 25,
+      "recovery": 57.6,
+      "sleep_h": 6.44,
+      "rem_min": 100.6
+    },
+    {
+      "stage": "day 3+",
+      "n": 10,
+      "recovery": 39.2,
+      "sleep_h": 5.45,
+      "rem_min": 73.8
+    }
+  ],
+  "illness_signal": {
+    "delta_threshold_c": 0.5,
+    "n_days": 22,
+    "recovery_on_day": 40.3,
+    "baseline_recovery": 58.2,
+    "next_day_recovery": 56.2
+  },
+  "recovery_correlates": [
+    {
+      "label": "HRV",
+      "corr": 0.79
+    },
+    {
+      "label": "Sleep performance",
+      "corr": 0.697
+    },
+    {
+      "label": "Resting heart rate",
+      "corr": -0.653
+    },
+    {
+      "label": "REM duration",
+      "corr": 0.566
+    },
+    {
+      "label": "Bedtime",
+      "corr": -0.388
+    },
+    {
+      "label": "Respiratory rate",
+      "corr": -0.377
+    },
+    {
+      "label": "Sleep efficiency",
+      "corr": 0.076
+    },
+    {
+      "label": "Sleep consistency",
+      "corr": 0.03
+    }
+  ],
+  "altitude_trip": {
+    "trip_start": "2026-02-15",
+    "trip_end_exclusive": "2026-02-22",
+    "n_days": 7,
+    "recovery": 18.3,
+    "baseline_recovery": 59.0,
+    "recovery_delta": -40.69,
+    "rhr": 62.6,
+    "rhr_delta": 12.82,
+    "hrv": 54.1,
+    "hrv_delta": -43.95,
+    "spo2": 93.9,
+    "spo2_delta": -2.16,
+    "sleep_h": 4.98,
+    "sleep_h_delta": -1.24,
+    "strain": 15.1,
+    "strain_delta": 3.75,
+    "short_sleep_baseline_recovery": 32.3,
+    "high_rhr_days_year": 12,
+    "high_rhr_days_in_trip": 4,
+    "compare": [
+      {
+        "metric": "Recovery",
+        "unit": "%",
+        "feb": 47.1,
+        "trip": 18.3
+      },
+      {
+        "metric": "Sleep",
+        "unit": "h",
+        "feb": 5.91,
+        "trip": 4.98
+      },
+      {
+        "metric": "Strain",
+        "unit": "",
+        "feb": 12.3,
+        "trip": 15.1
+      },
+      {
+        "metric": "RHR",
+        "unit": "bpm",
+        "feb": 53.7,
+        "trip": 62.6
+      },
+      {
+        "metric": "HRV",
+        "unit": "ms",
+        "feb": 85.6,
+        "trip": 54.1
+      }
+    ]
+  }
+}
